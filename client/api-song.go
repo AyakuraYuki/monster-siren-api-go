@@ -7,7 +7,7 @@ import (
 	"github.com/AyakuraYuki/monster-siren-api-go/model"
 )
 
-// Songs 获取所有歌曲列表信息，以及官网自动播放的歌曲的ID
+// Songs 获取所有歌曲，和官网自动播放的歌曲的ID
 func (c *Client) Songs(ctx context.Context) (songs []*model.Song, autoplay string, err error) {
 	rsp, err := doGet[*model.SongsRsp](ctx, c, "/api/songs")
 	if err != nil {
@@ -16,7 +16,7 @@ func (c *Client) Songs(ctx context.Context) (songs []*model.Song, autoplay strin
 	return rsp.Data.List, rsp.Data.Autoplay, nil
 }
 
-// Song 获取单首歌曲的信息
+// Song 获取一首歌的基本信息，包含音频URL和歌词等文件，但不包含专辑图片
 func (c *Client) Song(ctx context.Context, songID string) (*model.Song, error) {
 	api := fmt.Sprintf("/api/song/%s", songID)
 	rsp, err := doGet[*model.SongRsp](ctx, c, api)

@@ -8,7 +8,7 @@ import (
 	"github.com/AyakuraYuki/monster-siren-api-go/model"
 )
 
-// Recommends 获取官网「动向」页面的轮播信息
+// Recommends 获取动向左侧轮播图的数据
 func (c *Client) Recommends(ctx context.Context) ([]*model.Recommends, error) {
 	rsp, err := doGet[*model.RecommendsRsp](ctx, c, "/api/recommends")
 	if err != nil {
@@ -17,8 +17,10 @@ func (c *Client) Recommends(ctx context.Context) ([]*model.Recommends, error) {
 	return rsp.Data, nil
 }
 
-// News 获取官网「动向」页面的新闻列表
-// 获取第一页时，lastCid 传空字符串；获取后续页时，lastCid 传 [model.News.Cid]。
+// News 获取动向右侧新闻无限滚动列表信息
+//
+//	[param] lastCid: 上一次请求中列表内最后一项的cid，请求第一页传空字符串
+//	[return] end: 如果为 true 则代表没有更多新闻了
 func (c *Client) News(ctx context.Context, lastCid string) (news []*model.News, end bool, err error) {
 	query := url.Values{}
 	if lastCid != "" {
@@ -31,8 +33,7 @@ func (c *Client) News(ctx context.Context, lastCid string) (news []*model.News, 
 	return rsp.Data.List, rsp.Data.End, nil
 }
 
-// NewsDetail 获取新闻详情
-// cid 是 [model.News.Cid]，来自 News 接口返回的新闻列表。
+// NewsDetail 获取一个新闻的详细信息
 func (c *Client) NewsDetail(ctx context.Context, cid string) (*model.News, error) {
 	api := fmt.Sprintf("/api/news/%s", cid)
 	rsp, err := doGet[*model.NewsDetailRsp](ctx, c, api)

@@ -8,6 +8,9 @@ Go 1.26 及以上
 
 ## 使用方法
 
+- [接口清单](API.md)
+- [SDK文档](SDK_DOC.md)
+
 ```shell
 go get -u "github.com/AyakuraYuki/monster-siren-api-go/client"
 ```

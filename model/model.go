@@ -1,5 +1,6 @@
 package model
 
+// Song 歌曲
 type Song struct {
 	Cid        string   `json:"cid"`
 	Name       string   `json:"name"`
@@ -16,6 +17,7 @@ func (s *Song) Exists() bool {
 	return s != nil && s.Cid != ""
 }
 
+// Album 专辑
 type Album struct {
 	Cid        string   `json:"cid"`
 	Name       string   `json:"name"`
@@ -31,6 +33,7 @@ func (a *Album) Exists() bool {
 	return a != nil && a.Cid != ""
 }
 
+// Recommends 轮播动向
 type Recommends struct {
 	Title       string          `json:"title"`
 	CoverUrl    string          `json:"coverUrl"`
@@ -40,11 +43,13 @@ type Recommends struct {
 	Data        string          `json:"data"`
 }
 
+// RecommendsCover 轮播动向的图片
 type RecommendsCover struct {
 	Private bool   `json:"private"`
 	Path    string `json:"path"`
 }
 
+// News 动向
 type News struct {
 	Cid     string `json:"cid"`
 	Title   string `json:"title"`
@@ -58,11 +63,13 @@ func (n *News) Exists() bool {
 	return n != nil && n.Cid != ""
 }
 
+// FontSet 字体集
 type FontSet struct {
 	SansRegular FontSansRegular `json:"Sans-Regular"`
 	SansBold    FontSansBold    `json:"Sans-Bold"`
 }
 
+// FontSansRegular 字体集常规字体
 type FontSansRegular struct {
 	Tt   string `json:"tt"`
 	Eot  string `json:"eot"`
@@ -70,6 +77,7 @@ type FontSansRegular struct {
 	Woff string `json:"woff"`
 }
 
+// FontSansBold 字体集粗体字体
 type FontSansBold struct {
 	Tt   string `json:"tt"`
 	Eot  string `json:"eot"`
