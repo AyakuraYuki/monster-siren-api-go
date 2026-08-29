@@ -1,9 +1,9 @@
 package model
 
 type FontSetRsp struct {
-	Code int      `json:"code"`
-	Msg  string   `json:"msg"`
 	Data *FontSet `json:"data"`
+	Msg  string   `json:"msg"`
+	Code int      `json:"code"`
 }
 
 func (r *FontSetRsp) GetCode() int   { return r.Code }

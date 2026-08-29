@@ -3,8 +3,8 @@ package api_error
 import "fmt"
 
 type Error struct {
-	Code int
 	Msg  string
+	Code int
 }
 
 func NewError(code int, msg string) *Error {

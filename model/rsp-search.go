@@ -1,9 +1,9 @@
 package model
 
 type SearchRsp struct {
-	Code int            `json:"code"`
-	Msg  string         `json:"msg"`
 	Data *SearchRspData `json:"data"`
+	Msg  string         `json:"msg"`
+	Code int            `json:"code"`
 }
 
 func (r *SearchRsp) GetCode() int   { return r.Code }
@@ -15,9 +15,9 @@ type SearchRspData struct {
 }
 
 type SearchAlbumRsp struct {
-	Code int                 `json:"code"`
-	Msg  string              `json:"msg"`
 	Data *SearchAlbumRspData `json:"data"`
+	Msg  string              `json:"msg"`
+	Code int                 `json:"code"`
 }
 
 func (r *SearchAlbumRsp) GetCode() int   { return r.Code }
@@ -28,9 +28,9 @@ type SearchAlbumRspData struct {
 	End  bool     `json:"end"`
 }
 type SearchNewsRsp struct {
-	Code int                `json:"code"`
-	Msg  string             `json:"msg"`
 	Data *SearchNewsRspData `json:"data"`
+	Msg  string             `json:"msg"`
+	Code int                `json:"code"`
 }
 
 func (r *SearchNewsRsp) GetCode() int   { return r.Code }

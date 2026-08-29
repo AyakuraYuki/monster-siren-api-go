@@ -22,8 +22,8 @@ var (
 
 // Client 是 塞壬唱片-MSR 后端接口的客户端封装，用于发起接口请求以及管理HTTP客户端实例
 type Client struct {
-	baseURL string
 	cli     *resty.Client
+	baseURL string
 }
 
 // NewClient 创建一个 塞壬唱片-MSR 后端接口客户端实例

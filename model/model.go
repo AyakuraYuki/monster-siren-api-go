@@ -35,28 +35,28 @@ func (a *Album) Exists() bool {
 
 // Recommends 轮播动向
 type Recommends struct {
+	Cover       RecommendsCover `json:"cover"`
 	Title       string          `json:"title"`
 	CoverUrl    string          `json:"coverUrl"`
-	Cover       RecommendsCover `json:"cover"`
 	Description string          `json:"description"`
-	Type        int             `json:"type"`
 	Data        string          `json:"data"`
+	Type        int             `json:"type"`
 }
 
 // RecommendsCover 轮播动向的图片
 type RecommendsCover struct {
-	Private bool   `json:"private"`
 	Path    string `json:"path"`
+	Private bool   `json:"private"`
 }
 
 // News 动向
 type News struct {
 	Cid     string `json:"cid"`
 	Title   string `json:"title"`
-	Cate    int    `json:"cate"`
 	Author  string `json:"author,omitempty"`
 	Content string `json:"content,omitempty"`
 	Date    string `json:"date"`
+	Cate    int    `json:"cate"`
 }
 
 func (n *News) Exists() bool {

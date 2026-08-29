@@ -1,18 +1,18 @@
 package model
 
 type RecommendsRsp struct {
-	Code int           `json:"code"`
 	Msg  string        `json:"msg"`
 	Data []*Recommends `json:"data"`
+	Code int           `json:"code"`
 }
 
 func (r *RecommendsRsp) GetCode() int   { return r.Code }
 func (r *RecommendsRsp) GetMsg() string { return r.Msg }
 
 type NewsRsp struct {
-	Code int          `json:"code"`
-	Msg  string       `json:"msg"`
 	Data *NewsRspData `json:"data"`
+	Msg  string       `json:"msg"`
+	Code int          `json:"code"`
 }
 
 func (r *NewsRsp) GetCode() int   { return r.Code }
@@ -24,9 +24,9 @@ type NewsRspData struct {
 }
 
 type NewsDetailRsp struct {
-	Code int    `json:"code"`
-	Msg  string `json:"msg"`
 	Data *News  `json:"data"`
+	Msg  string `json:"msg"`
+	Code int    `json:"code"`
 }
 
 func (r *NewsDetailRsp) GetCode() int   { return r.Code }
